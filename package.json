@@ -1,0 +1,30 @@
+{
+  "name": "shopping-cart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "mix",
+    "watch": "mix watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DulcePC/shopping-cart.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DulcePC/shopping-cart/issues"
+  },
+  "homepage": "https://github.com/DulcePC/shopping-cart#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "laravel-mix": "^6.0.16",
+    "postcss": "^8.2.9",
+    "resolve-url-loader": "^3.1.2",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "tailwindcss": "^2.0.4"
+  }
+}
