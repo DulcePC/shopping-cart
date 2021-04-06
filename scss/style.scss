@@ -10,6 +10,21 @@ body {
 
 header {
   min-height: 80px;
+
+  ul {
+    li {
+      .sub-menu {
+        display: none;
+        min-height: 200px;
+      }
+
+      &:hover {
+        .sub-menu {
+          display: block;
+        }
+      }
+    }
+  }
 }
 
 .introduction-page {

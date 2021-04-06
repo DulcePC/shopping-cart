@@ -24,7 +24,9 @@
             <a href="javascript:;" class="text-white text-3xl hover:text-pink-secondary duration-200">
               <i class="fas fa-shopping-cart"></i>
             </a>
-            <div class="bg-white rounded-sm w-3/6 h-2/4 block absolute z-10"></div>
+            <div id="shoppingCart" class="bg-white rounded-sm w-52 h-2/4 absolute z-10 -left-40 p-2 sub-menu">
+              <a href="javascript:;" id="deleteAllProducts" class="px-2 border border-pink-primary block mt-auto text-center text-pink-primary rounded-md hover:bg-red hover:text-white duration-300">Vaciar carrito</a>
+            </div>
           </li>
         </ul>
       </nav>
@@ -40,7 +42,7 @@
     <section class="mt-5 mb-32">
       <div class="container">
         <h2 class="text-center text-4xl font-light">Cursos en línea</h2>
-        <ul class="grid grid-cols-12 gap-4 mt-20">
+        <ul id="courseList" class="grid grid-cols-12 gap-4 mt-20">
           <li class="lg:col-span-3 md:col-span-4 col-span-12 mb-6">
             <div class="card block border border-pink-secondary duration-300 hover:shadow-lg">
               <figure class="h-36 mb-2">
@@ -50,7 +52,7 @@
                 <h5 class="uppercase font-bold text-pink-secondary text-base tracking-wide">html5</h5>
                 <h6 class="font-light text-black text-sm">Dulce Perez</h6>
                 <p class="font-bold text-pink-secondary mt-5 mb-4">$20</p>
-                <a href="javascript:;" class="bg-pink-secondary text-white font-bold rounded-3xl py-2 px-5 block text-center">Agregar al carrito</a>
+                <a href="javascript:;" data-id="1" class="add-to-cart-btn bg-pink-secondary text-white font-bold rounded-3xl py-2 px-5 block text-center">Agregar al carrito</a>
               </div>
             </div>
           </li>
@@ -63,7 +65,7 @@
                 <h5 class="uppercase font-bold text-pink-secondary text-base tracking-wide">css3</h5>
                 <h6 class="font-light text-black text-sm">Dulce Perez</h6>
                 <p class="font-bold text-pink-secondary mt-5 mb-4">$20</p>
-                <a href="javascript:;" class="bg-pink-secondary text-white font-bold rounded-3xl py-2 px-5 block text-center">Agregar al carrito</a>
+                <a href="javascript:;" data-id="2" class="add-to-cart-btn bg-pink-secondary text-white font-bold rounded-3xl py-2 px-5 block text-center">Agregar al carrito</a>
               </div>
             </div>
           </li>
@@ -76,7 +78,7 @@
                 <h5 class="uppercase font-bold text-pink-secondary text-base tracking-wide">Scss(Sass)</h5>
                 <h6 class="font-light text-black text-sm">Dulce Perez</h6>
                 <p class="font-bold text-pink-secondary mt-5 mb-4">$20</p>
-                <a href="javascript:;" class="bg-pink-secondary text-white font-bold rounded-3xl py-2 px-5 block text-center">Agregar al carrito</a>
+                <a href="javascript:;" data-id="3" class="add-to-cart-btn bg-pink-secondary text-white font-bold rounded-3xl py-2 px-5 block text-center">Agregar al carrito</a>
               </div>
             </div>
           </li>
@@ -89,7 +91,7 @@
                 <h5 class="uppercase font-bold text-pink-secondary text-base tracking-wide">javascript</h5>
                 <h6 class="font-light text-black text-sm">Dulce Perez</h6>
                 <p class="font-bold text-pink-secondary mt-5 mb-4">$20</p>
-                <a href="javascript:;" class="bg-pink-secondary text-white font-bold rounded-3xl py-2 px-5 block text-center">Agregar al carrito</a>
+                <a href="javascript:;"  data-id="4" class="add-to-cart-btn bg-pink-secondary text-white font-bold rounded-3xl py-2 px-5 block text-center">Agregar al carrito</a>
               </div>
             </div>
           </li>
@@ -102,7 +104,7 @@
                 <h5 class="uppercase font-bold text-pink-secondary text-base tracking-wide">node</h5>
                 <h6 class="font-light text-black text-sm">Dulce Perez</h6>
                 <p class="font-bold text-pink-secondary mt-5 mb-4">$20</p>
-                <a href="javascript:;" class="bg-pink-secondary text-white font-bold rounded-3xl py-2 px-5 block text-center">Agregar al carrito</a>
+                <a href="javascript:;"  data-id="5" class="add-to-cart-btn bg-pink-secondary text-white font-bold rounded-3xl py-2 px-5 block text-center">Agregar al carrito</a>
               </div>
             </div>
           </li>
@@ -115,7 +117,7 @@
                 <h5 class="uppercase font-bold text-pink-secondary text-base tracking-wide">php</h5>
                 <h6 class="font-light text-black text-sm">Dulce Perez</h6>
                 <p class="font-bold text-pink-secondary mt-5 mb-4">$20</p>
-                <a href="javascript:;" class="bg-pink-secondary text-white font-bold rounded-3xl py-2 px-5 block text-center">Agregar al carrito</a>
+                <a href="javascript:;"  data-id="6" class="add-to-cart-btn bg-pink-secondary text-white font-bold rounded-3xl py-2 px-5 block text-center">Agregar al carrito</a>
               </div>
             </div>
           </li>
@@ -123,5 +125,7 @@
       </div>
     </section>
   </main>
+  <!-- javascript -->
+  <script src="js/main.js"></script>
 </body>
 </html>
