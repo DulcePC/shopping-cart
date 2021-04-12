@@ -3,6 +3,7 @@ const shoppingCart = document.querySelector('#shoppingCart');
 const shoppintCartList = document.querySelector('#shoppingCartList');
 const courseLists = document.querySelector('#courseList');
 const deleteAllProducts = document.querySelector('#deleteAllProducts');
+let productsCart = [];
 
 loadEventListeners();
 function loadEventListeners() {
@@ -51,6 +52,20 @@ function readCourseData(course) {
     id:    course.querySelector('a').getAttribute('data-id'),
     cantidad: 1
   }
+  // console.log(courseInformation);
 
-  console.log(courseInformation);
+  //Agregar elementos al arreglo de carritos
+  
+  //Lo que se hizo aqui fue un spread operator, que se utiliza para unir, entonces se repite productsCart
+  //porque aun yo vaya agregando productos al carrito debe mantenere una copia de los ya agregados
+  productsCart = [...productsCart, courseInformation];
+  console.log(productsCart);
+}
+
+//Mostrar carrito de compra en el html
+//Crear el html
+function shoppingCartHtml() {
+  productsCart.forEach( course => {
+    
+  })
 }
