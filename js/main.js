@@ -48,24 +48,58 @@ function readCourseData(course) {
     //Aqui le pasamos el course. porque es quien ya contiene los elementos htmml del curso que seleccionamos
     image: course.querySelector('img').src,
     title: course.querySelector('h5').textContent,
-    price: course.querySelector('p'),
+    price: course.querySelector('p').textContent,
     id:    course.querySelector('a').getAttribute('data-id'),
     cantidad: 1
   }
   // console.log(courseInformation);
-
-  //Agregar elementos al arreglo de carritos
   
   //Lo que se hizo aqui fue un spread operator, que se utiliza para unir, entonces se repite productsCart
   //porque aun yo vaya agregando productos al carrito debe mantenere una copia de los ya agregados
   productsCart = [...productsCart, courseInformation];
-  console.log(productsCart);
+  // console.log(productsCart);
+
+  //Agregar elementos al arreglo de carritos
+  shoppingCartHtml();
 }
 
 //Mostrar carrito de compra en el html
 //Crear el html
 function shoppingCartHtml() {
+  cleanListContainer();
+
+  //recorre el carrito y genera el html
   productsCart.forEach( course => {
-    
+    const li = document.createElement('li');
+    li.classList.add('mb-1');
+    li.innerHTML = 
+    `
+    <div class="flex items-center">
+      <figure class="w-20 h-14">
+        <img src="${course.image}" alt="html course" class="w-full h-full object-center object-cover">
+      </figure>
+      <div class="pl-2 flex justify-between w-full">
+        <h5 class="uppercase font-bold text-pink-secondary text-sm tracking-wide">${course.title}</h5>
+        <p class="font-bold text-pink-secondary text-sm">${course.price}</p>
+      </div>
+    </div> 
+    `;
+    //Agregar el li al a la lista
+    shoppintCartList.appendChild(li);
   })
+}
+
+//Hay que limpiar el shoppingcartlist, porque va agregar al que le damos click pero no eliminara los previos
+//Entonces se supone que cuando le das al carrito una vez se muestre algo, pero cuando le das nuevamente
+//No deberia quedarse los viejos, sin actualizarse con lo que hay en el carrito de compra
+
+//Limpiar el html
+function cleanListContainer() {
+  //Forma Lenta
+  // shoppintCartList.innerHTML = '';
+
+  //Recuerda que ejecuta una funcion almenos sea verdadera
+  while(shoppintCartList.firstChild) {
+    shoppintCartList.removeChild(shoppintCartList.firstChild)
+  }
 }
