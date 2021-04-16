@@ -53,11 +53,28 @@ function readCourseData(course) {
     cantidad: 1
   }
   // console.log(courseInformation);
-  
-  //Lo que se hizo aqui fue un spread operator, que se utiliza para unir, entonces se repite productsCart
-  //porque aun yo vaya agregando productos al carrito debe mantenere una copia de los ya agregados
-  productsCart = [...productsCart, courseInformation];
-  // console.log(productsCart);
+
+  //Revisar si un elemento existe en el carrito
+  const producExist = productsCart.some(course => course.id === courseInformation.id);
+  console.log(producExist);
+  if (producExist) {
+    //actualizamos la cantidad
+    const courses = productsCart.map( course => {
+      if(course.id === courseInformation.id ){
+        course.cantidad++;
+        // console.log(course.cantidad);
+        return course;
+      } else {
+        return course;
+      }
+    });
+    productsCart = [...courses];
+  } else {
+    //Lo que se hizo aqui fue un spread operator, que se utiliza para unir, entonces se repite productsCart
+    //porque aun yo vaya agregando productos al carrito debe mantenere una copia de los ya agregados
+    productsCart = [...productsCart, courseInformation];
+    // console.log(productsCart);
+  }
 
   //Agregar elementos al arreglo de carritos
   shoppingCartHtml();
@@ -75,12 +92,14 @@ function shoppingCartHtml() {
     li.innerHTML = 
     `
     <div class="flex items-center">
-      <figure class="w-20 h-14">
+      <figure class="w-20 h-14 relative">
         <img src="${course.image}" alt="html course" class="w-full h-full object-center object-cover">
+        <span class="font-bold absolute -top-1 -right-2 text-xs w-5 h-5 bg-pink-secondary text-white flex items-center justify-center rounded-full leading-none">${course.cantidad}</span>
       </figure>
-      <div class="pl-2 flex justify-between w-full">
-        <h5 class="uppercase font-bold text-pink-secondary text-sm tracking-wide">${course.title}</h5>
-        <p class="font-bold text-pink-secondary text-sm">${course.price}</p>
+      <div class="pl-2 flex items-center justify-between w-full">
+        <h5 class="uppercase font-bold text-pink-secondary text-xs tracking-wide">${course.title}</h5>
+        <p class="font-bold text-pink-secondary text-xs">${course.price}</p>
+        <a class="w-5 h-5 bg-red text-white flex items-center justify-center rounded-full leading-none" href="#" data-id="${course.id}">x</a>
       </div>
     </div> 
     `;
