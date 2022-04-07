@@ -8,6 +8,9 @@ let productsCart = [];
 loadEventListeners();
 function loadEventListeners() {
   courseLists.addEventListener('click', addTocart);
+
+  //Eliminia cursos del carrito
+  shoppingCart.addEventListener('click', deleteCourse);
 }
 
 //Functions
@@ -37,6 +40,13 @@ function addTocart(e) {
 
   //Entonces esta funcion en resumen lo que hace es cuando seleccionamos el tag a, busca el elemento que donde lo agrupamos 
   //Para luego en la funcion readCourseData cree un objeto con esa informacion seleccionada
+}
+
+//Eliminar un curso del carrito
+function deleteCourse(e) {
+  if(e.target.classList.contains('delete')) {
+    console.log(e.target)
+  }
 }
 
 //Aqui obtenemos la informacion del curso seleccionado en la funcion de addToCart
@@ -99,7 +109,7 @@ function shoppingCartHtml() {
       <div class="pl-2 flex items-center justify-between w-full">
         <h5 class="uppercase font-bold text-pink-secondary text-xs tracking-wide">${course.title}</h5>
         <p class="font-bold text-pink-secondary text-xs">${course.price}</p>
-        <a class="w-5 h-5 bg-red text-white flex items-center justify-center rounded-full leading-none" href="#" data-id="${course.id}">x</a>
+        <a class="w-5 h-5 bg-red text-white flex items-center justify-center rounded-full leading-none delete" href="#" data-id="${course.id}">x</a>
       </div>
     </div> 
     `;
