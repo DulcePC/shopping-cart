@@ -45,7 +45,9 @@ function addTocart(e) {
 //Eliminar un curso del carrito
 function deleteCourse(e) {
   if(e.target.classList.contains('delete')) {
-    console.log(e.target)
+    const courseId = e.target.getAttribute('data-id');
+    productsCart = productsCart.filter( course => course.id !== courseId );
+    shoppingCartHtml();
   }
 }
 
