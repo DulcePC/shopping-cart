@@ -9,8 +9,19 @@ loadEventListeners();
 function loadEventListeners() {
   courseLists.addEventListener('click', addTocart);
 
-  //Eliminia cursos del carrito
+  //Elimina cursos del carrito
   shoppingCart.addEventListener('click', deleteCourse);
+
+  // Vaciar carrito de compra
+  deleteAllProducts.addEventListener('click', () => {
+    productsCart = []; // Reseteamos el arreglo
+    cleanListContainer(); // Eliminamos todo el html
+    deleteAllProducts.classList.add('hidden')
+  })
+
+  if(productsCart.length <= 0) {
+    deleteAllProducts.classList.add('hidden')
+  }
 }
 
 //Functions
@@ -36,6 +47,9 @@ function addTocart(e) {
 
     // Aqui le pasamos como paramentro el padre que contiene el elemento donde damos click para obtener la informacion
     readCourseData(selectedCourse);
+
+    //show delete all products
+    deleteAllProducts.classList.remove('hidden')
   }
 
   //Entonces esta funcion en resumen lo que hace es cuando seleccionamos el tag a, busca el elemento que donde lo agrupamos 
@@ -68,7 +82,7 @@ function readCourseData(course) {
 
   //Revisar si un elemento existe en el carrito
   const producExist = productsCart.some(course => course.id === courseInformation.id);
-  console.log(producExist);
+  // console.log(producExist);
   if (producExist) {
     //actualizamos la cantidad
     const courses = productsCart.map( course => {
